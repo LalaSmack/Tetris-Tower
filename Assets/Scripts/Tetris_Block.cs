@@ -61,9 +61,9 @@ public class Tetris_Block : MonoBehaviour
     {
         if (collided) return;
         collided = true;
-        
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0;
+        //rb.freezeRotation = true;
         FindObjectOfType<SpawnBlock>().NewBlock();
     }
     // Check if the block is within the bounds of the grid
