@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 7522133689908452008}
   - component: {fileID: 4913152804412889452}
   - component: {fileID: 2489068290439097770}
-  - component: {fileID: -6111359051421790312}
+  - component: {fileID: 8627699819968719782}
   m_Layer: 0
   m_Name: O block
   m_TagString: Untagged
@@ -252,8 +252,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!60 &-6111359051421790312
-PolygonCollider2D:
+--- !u!61 &8627699819968719782
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -286,7 +286,7 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.005807638, y: 0.17132854}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -296,14 +296,8 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
-  m_UseDelaunayMesh: 0
+  m_Size: {x: 1.8711619, y: 1.888586}
+  m_EdgeRadius: 0
 --- !u!1 &3935680961562405531
 GameObject:
   m_ObjectHideFlags: 0
