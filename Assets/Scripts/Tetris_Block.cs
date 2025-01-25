@@ -24,7 +24,6 @@ public class Tetris_Block : MonoBehaviour
         { 
             OnInput();
         }
-       
     }
 
    void OnInput()
@@ -64,6 +63,8 @@ public class Tetris_Block : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0;
         //rb.freezeRotation = true;
+        Debug.Log($"Highest Point: {GridManager.highest}");
+        GridManager.HighestPointUpdate(transform);
         FindObjectOfType<SpawnBlock>().NewBlock();
     }
     // Check if the block is within the bounds of the grid
@@ -74,7 +75,7 @@ public class Tetris_Block : MonoBehaviour
             int roundedX = Mathf.RoundToInt(children.transform.position.x);
             int roundedY = Mathf.RoundToInt(children.transform.position.y);
 
-            if (roundedX < 0 || roundedX >= width || roundedY < 0 || roundedY >= height)
+            if (roundedX < 0 || roundedX >= width || roundedY < 0 + (Camera.main.transform.position.y - 9) || roundedY >= height)
             {
                 return false;
             }
