@@ -3,15 +3,16 @@ using UnityEngine;
 public class SpawnBlock : MonoBehaviour
 {
     public GameObject[] blocks;
-    public SpawnBlock(GameObject[] blocks)
-    {
-        this.blocks = blocks;
-    }
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         NewBlock();
+    }
+
+    void  Update()
+    {
+        transform.position = new Vector3(transform.position.x,Camera.main.transform.position.y + 7, transform.position.z);
     }
 
     public void NewBlock()
