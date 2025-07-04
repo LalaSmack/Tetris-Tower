@@ -26,12 +26,7 @@ public class Tetris_Block : MonoBehaviour
         if (!collided)
         { 
             OnInput();
-            if (transform.position.y < (Camera.main.transform.position.y - 10))
-            {
-                isGameOver = true;
-                Time.timeScale = 0;
-                Debug.Log("Game Over block fell");
-            }
+            
         }
 
     }
@@ -81,8 +76,8 @@ public class Tetris_Block : MonoBehaviour
         score += 1;
         Debug.Log("Score: " + score);
         GridManager.HighestPointUpdate(transform);
-        FindObjectOfType<SpawnBlock>().NewBlock();
-        StackFalls();
+        FindAnyObjectByType<SpawnBlock>().NewBlock();
+        
     }
     // Check if the block is within the bounds of the grid
     bool isValidGridPos()
@@ -101,39 +96,6 @@ public class Tetris_Block : MonoBehaviour
         return true;
     }
 
-    public static void StackFalls()
-    {
-        float bottomLimit = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).y; // Bottom of the camera view
-        List<GameObject> toRemove = new List<GameObject>(); // Track blocks that are too low
-
-        foreach (GameObject block in stack)
-        {
-            if (block == null) continue; // Skip destroyed blocks
-
-            float blockY = block.transform.position.y;
-
-            // If block falls below screen with a buffer (-1f), game over
-            if (blockY < bottomLimit - 0.75f)
-            {
-                isGameOver = true;
-                Time.timeScale = 0;
-                Debug.Log("Game Over: Block fell below the screen");
-                return;
-            }
-
-            // Remove blocks that are far below and irrelevants
-            if (blockY < bottomLimit - 5f) // Clean up blocks way below the screen
-            {
-                toRemove.Add(block);
-            }
-        }
-
-        // Clean up blocks that are way below
-        foreach (GameObject block in toRemove)
-        {
-            stack.Remove(block);
-            Destroy(block); 
-        }
-    }
+    
 
 }
